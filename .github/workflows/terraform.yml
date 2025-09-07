@@ -20,5 +20,23 @@ jobs:
           client-id: 6bf3e812-0c5b-4155-92c0-33d9a154ef16
           tenant-id: e92dda8b-a61d-4340-beaf-a377190b69f4
           subscription-id: ef88ee82-ddb3-44a3-970a-7a8e3296f3f5
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+        
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+        
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+        
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -input=false
+        continue-on-error: true   
+                
       
   
