@@ -7,6 +7,9 @@ on:
 jobs:
   my_first_job:
     name: My first job
-  my_second_job:
-    name: My second job
+    runs-on: anshrunner
+    steps:
+      - name: Print a greeting
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
   
